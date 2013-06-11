@@ -12,7 +12,8 @@ public class Reserva {
 	@GeneratedValue
 	private Long id;
 
-	private String cadeira;
+	//limpeza: sem getters e setters
+	//private String cadeira;
 
 	@ManyToOne
 	private Espetaculo espetaculo;
