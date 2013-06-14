@@ -16,6 +16,7 @@ import br.com.caelum.agiletickets.domain.Agenda;
 import br.com.caelum.agiletickets.domain.DiretorioDeEstabelecimentos;
 import br.com.caelum.agiletickets.models.Espetaculo;
 import br.com.caelum.agiletickets.models.Sessao;
+import br.com.caelum.agiletickets.models.TipoIngresso;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.util.test.MockResult;
@@ -81,7 +82,7 @@ public class EspetaculosControllerTest {
 	public void naoDeveReservarZeroIngressos() throws Exception {
 		when(agenda.sessao(1234l)).thenReturn(new Sessao());
 
-		controller.reserva(1234l, 0);
+		controller.reserva(1234l, 0, TipoIngresso.Inteira);
 
 		verifyZeroInteractions(result);
 	}
@@ -93,7 +94,7 @@ public class EspetaculosControllerTest {
 
 		when(agenda.sessao(1234l)).thenReturn(sessao);
 
-		controller.reserva(1234l, 5);
+		controller.reserva(1234l, 5, TipoIngresso.Inteira);
 
 		verifyZeroInteractions(result);
 	}
@@ -105,7 +106,7 @@ public class EspetaculosControllerTest {
 
 		when(agenda.sessao(1234l)).thenReturn(sessao);
 
-		controller.reserva(1234l, 3);
+		controller.reserva(1234l, 3, TipoIngresso.Inteira);
 
 		assertThat(sessao.getIngressosDisponiveis(), is(2));
 	}

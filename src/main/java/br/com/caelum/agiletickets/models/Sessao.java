@@ -32,6 +32,8 @@ public class Sessao {
 	private Integer ingressosReservados = 0;
 
 	private BigDecimal preco;
+	
+	private TipoIngresso tipoingresso;
 
 	public Long getId() {
 		return id;
@@ -109,5 +111,13 @@ public class Sessao {
 
 	public BigDecimal getPreco() {
 		return preco;
+	}
+
+	public TipoIngresso getTipoingresso() {
+		return tipoingresso;
+	}
+
+	public void setTipoingresso(TipoIngresso tipoingresso) {
+		this.tipoingresso = tipoingresso;
 	}
 }
